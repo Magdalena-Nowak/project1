@@ -1,1 +1,99 @@
-/* No CSS *//*# sourceMappingURL=style.css.map */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  font-size: 62.5%;
+  font-family: "IM Fell English SC", serif;
+  background-color: #232123;
+}
+
+.hero {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero__person {
+  height: 45vh;
+  margin: 0.5rem;
+  position: relative;
+}
+
+.hero__person-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  border-radius: 1rem;
+  letter-spacing: 0.08rem;
+  display: none;
+  animation: all 0.6s ease-in;
+}
+
+.hero__person-icon {
+  position: absolute;
+  top: 3%;
+  right: 3%;
+  transform: translate(-3%, -3%);
+  color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.hero__person-icon:hover {
+  color: #8a8a8a;
+}
+
+.hero__person-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+.hero__person-text {
+  font-size: 0.8rem;
+}
+
+.hero__person-title {
+  margin: 1rem 0;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+@media (min-width: 776px) {
+  .hero {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .hero__person {
+    height: 70vh;
+  }
+}
+
+@keyframes revealDescription {
+  0% {
+    display: none;
+  }
+  100% {
+    display: calc(1%);
+  }
+}
+/*# sourceMappingURL=style.css.map */
