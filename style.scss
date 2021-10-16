@@ -12,19 +12,39 @@
 }
 
 body {
-  height: 100vh;
+  min-height: 100vh;
   font-size: 62.5%;
   font-family: "IM Fell English SC", serif;
-  background-color: #232123;
+  background: rgb(94, 94, 90);
+  background: radial-gradient(
+    circle,
+    rgba(94, 94, 90, 1) 0%,
+    rgba(3, 3, 3, 0.969625350140056) 100%
+  );
+  @include flex(row, center, center);
+  padding: 5rem 1rem; 
 }
 
 .hero {
   height: 100%;
+  width: 1200px;
   @include flex(column, center, center);
   &__person {
-    height: 45vh;
+    height: 80vh;
+    width: 100%;
     margin: 0.5rem;
     position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  &__person--one {
+    background-image: url(/img/pexels-yuliya-kosolapova-3270230.jpg);
+  }
+  &__person--two {
+    background-image: url(/img/pexels-martin-péchy-594610.jpg);
   }
   &__person-description {
     @include flex(column, flex-end, center);
@@ -34,32 +54,24 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.7);
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.85);
     color: white;
-    border-radius: 1rem;
     letter-spacing: 0.08rem;
-    display: none;
-    animation: all 0.6s ease-in;
+    clip-path: circle(0% at 50% 90%);
+    transition: clip-path 0.6s ease-in-out;
   }
   &__person-icon {
+    padding: 0.5rem;
     position: absolute;
     top: 3%;
     right: 3%;
     transform: translate(-3%, -3%);
     color: white;
     font-size: 1.8rem;
-    cursor: pointer;
+    cursor: crosshair;
     z-index: 5;
-  }
-  &__person-icon:hover {
-    color: rgb(138, 138, 138);
-  }
-
-  &__person-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 1rem;
   }
   &__person-text {
     font-size: 0.8rem;
@@ -68,23 +80,19 @@ body {
     margin: 1rem 0;
     font-size: 1rem;
     text-transform: uppercase;
+    color: darkgoldenrod;
   }
 }
 
 @media (min-width: 776px) {
-    .hero {
-        @include flex(row, center, center);
-        &__person {
-            height: 70vh;
-          }
+  .hero {
+    @include flex(row, center, center);
+    &__person {
+      height: 70vh;
     }
+  }
 }
 
-@keyframes revealDescription {
-    0% {
-        display: none;
-    }
-    100% {
-        display: calc(1%);    
-    }
+.hero__person-icon:hover ~ .hero__person-description {
+  clip-path: circle(120% at 50% 90%);
 }
