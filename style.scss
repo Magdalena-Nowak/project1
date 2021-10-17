@@ -50,15 +50,13 @@ body {
     @include flex(column, flex-end, center);
     width: 100%;
     height: 100%;
-    padding: 1rem;
+    padding: 2rem;
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
     background-color: rgba(0, 0, 0, 0.85);
     color: white;
-    letter-spacing: 0.08rem;
+    letter-spacing: 0.15rem;
     clip-path: circle(0% at 50% 90%);
     transition: clip-path 0.6s ease-in-out;
   }
@@ -74,7 +72,7 @@ body {
     z-index: 5;
   }
   &__person-text {
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
   &__person-title {
     margin: 1rem 0;
